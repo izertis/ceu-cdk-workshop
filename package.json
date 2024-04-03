@@ -20,6 +20,7 @@
     "typescript": "~5.1.6"
   },
   "dependencies": {
+    "@aws-solutions-constructs/aws-cloudfront-s3": "^2.54.0",
     "aws-cdk-lib": "2.133.0",
     "cdk-dynamo-table-viewer": "^0.2.488",
     "constructs": "^10.0.0"
