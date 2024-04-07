@@ -1,0 +1,34 @@
+name: Deploy AWS CDK Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fix installed dependencies to be able to deploy in an AWS student account
+        run: ./scripts/fix-dependencies.sh
+
+      - name: Deploy CDK
+        run: npx cdk deploy --all --require-approval never
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_DEFAULT_REGION: 'us-east-1'
