@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fix installed dependencies to be able to deploy in an AWS student account
-        run: ./scripts/fix-dependencies.sh
-
       - name: Deploy CDK
         run: npx cdk deploy --all --require-approval never
         env:
