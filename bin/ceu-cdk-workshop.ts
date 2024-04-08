@@ -5,10 +5,11 @@ import { defaultStackSynthesizer } from '../lib/custom-stack-synthesizer';
 import { CeuCdkSpaStack } from '../lib/ceu-cdk-spa-stack';
 
 const app = new cdk.App();
+
 new CeuCdkWorkshopStack(app, 'CeuCdkWorkshopStack', {
     synthesizer: defaultStackSynthesizer
 });
 
-const ceuCdkSpaStack = new CeuCdkSpaStack(app, 'CeuCdkSpaStack', {
+new CeuCdkSpaStack(app, 'CeuCdkSpaStack', {
     synthesizer: defaultStackSynthesizer
 });
