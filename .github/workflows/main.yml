@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: CDK Bootstrap
+        run: npx cdk bootstrap --template bootstrap-template.yml
+
       - name: Deploy CDK
-        run: npx cdk deploy --all --require-approval never
+        run: npx cdk deploy --all --require-approval never --role-arn arn:aws:iam::AWS_ACCOUNT:role/LabRole
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
