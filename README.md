@@ -37,4 +37,4 @@ region = us-east-1
 1. **Hello world**: Deploys an example API that returns the requested endpoint.
 2. **Hitcounter**: Deploys a custom Construct that counts the API endpoint calls and stores them in a DynamoDB table.
 3. **Table viewer**: Deploys a third-party Construct called [TableViewer](https://github.com/cdklabs/cdk-dynamo-table-viewer). This construct deploys a function that returns an HTML document that represents a DynamoDB Table.
-4. **SPA**: Deploys a second stack that contains a SPA.
+4. **SPA**: Deploys a second stack that contains a SPA, hosted as a static website in an S3 bucket. The URL is printed in the `SpaUrl` output.
