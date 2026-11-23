@@ -38,3 +38,8 @@ region = us-east-1
 2. **Hitcounter**: Deploys a custom Construct that counts the API endpoint calls and stores them in a DynamoDB table.
 3. **Table viewer**: Deploys a third-party Construct called [TableViewer](https://github.com/cdklabs/cdk-dynamo-table-viewer). This construct deploys a function that returns an HTML document that represents a DynamoDB Table.
 4. **SPA**: Deploys a second stack that contains a SPA, hosted as a static website in an S3 bucket. The URL is printed in the `SpaUrl` output.
+
+## Project cleanup
+
+* Empty the S3 Bucket via AWS Console
+* Remove deployed AWS resources with command: `cdk destroy --all --force --role-arn arn:aws:iam::AWS_ACCOUNT:role/LabRole --profile PROFILE_NAME`
